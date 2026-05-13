@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class AuthProviderApp with ChangeNotifier {
   //Variables privadas
-  FirebaseService _fbService = FirebaseService();
-  FirestoreService _fsService = FirestoreService();
+  final _fbService = FirebaseService();
+  final _fsService = FirestoreService();
   UserModel? _usuarioActual;
   bool _isLoading = false;
   bool _isLoggedIn = false;
@@ -69,6 +69,7 @@ class AuthProviderApp with ChangeNotifier {
       
       _usuarioActual = UserModel(
         uid: userCredential.user!.uid,
+        name: name,
         email: email,
       );
       

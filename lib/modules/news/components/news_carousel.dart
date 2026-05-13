@@ -12,7 +12,7 @@ class NewsCarousel extends StatelessWidget {
     final newsProvider = NewsProvider();
 
     return FutureBuilder<List<NewsModel>>(
-      future: newsProvider.getNews(),
+      future: newsProvider.getNews(null),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
