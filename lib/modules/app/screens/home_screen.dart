@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:informa2/helpers/constants/constants.dart';
 import 'package:informa2/modules/app/components/categoryTab_card.dart';
+import 'package:informa2/modules/app/provider/auth_provider.dart';
 import 'package:informa2/modules/app/screens/favorites_screen.dart';
 import 'package:informa2/modules/news/components/news_carousel.dart';
 import 'package:informa2/modules/news/screens/news_screen.dart';
@@ -52,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     final audioService = context.watch<MyAudioService>();
+    final authProvider = context.watch<AuthProviderApp>();
     return Stack(
       children: [
         Scaffold(
@@ -89,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 ),
                               ),
                               Text(
-                                'Giovanni',
+                                authProvider.usuarioActual?.name ?? 'Usuario',
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
